@@ -1,10 +1,20 @@
 import Components from 'unplugin-vue-components/webpack'
+import AutoImport from 'unplugin-auto-import/webpack'
 import NutUIResolver from '@nutui/nutui-taro/dist/resolver'
+
+const AutoImportConfig = {
+  imports: ['vue'],
+  eslintrc: {
+    enabled: false,
+    filepath: './.eslintrc-auto-import.json',
+    globalsPropValue: 'readonly'
+  }
+}
 
 const config = {
   projectName: 'taro-template',
   date: '2023-7-19',
-  designWidth (input) {
+  designWidth(input) {
     if (input?.file?.replace(/\\+/g, '/').indexOf('@nutui') > -1) {
       return 375
     }
@@ -30,18 +40,21 @@ const config = {
     prebundle: { enable: false }
   },
   cache: {
-    enable: false // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
+    enable: true // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
   },
   sass: {
     data: '@import "@nutui/nutui-taro/dist/styles/variables.scss";'
   },
   mini: {
-    webpackChain (chain) {
+    webpackChain(chain) {
       chain.plugin('unplugin-vue-components').use(
         Components({
           resolvers: [NutUIResolver({ taro: true })]
         })
       )
+      chain
+        .plugin('unplugin-auto-import/webpack')
+        .use(AutoImport(AutoImportConfig))
     },
     postcss: {
       pxtransform: {
@@ -66,12 +79,15 @@ const config = {
     }
   },
   h5: {
-    webpackChain (chain) {
+    webpackChain(chain) {
       chain.plugin('unplugin-vue-components').use(
         Components({
           resolvers: [NutUIResolver({ taro: true })]
         })
       )
+      chain
+        .plugin('unplugin-auto-import/webpack')
+        .use(AutoImport(AutoImportConfig))
     },
     publicPath: '/',
     staticDirectory: 'static',
