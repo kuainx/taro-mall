@@ -89,7 +89,7 @@ const config = {
         .plugin('unplugin-auto-import/webpack')
         .use(AutoImport(AutoImportConfig))
     },
-    publicPath: '/',
+    publicPath: './',
     staticDirectory: 'static',
     esnextModules: ['nutui-taro', 'icons-vue-taro'],
     postcss: {

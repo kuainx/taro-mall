@@ -1,29 +1,19 @@
 <template>
   <view class="index">
-    <view>
-      <Swiper></Swiper>
-    </view>
     <view style="padding: 20px;">
-      <view class="index-welcome-text">
-        <view style="font-size: 40px;font-weight: 100;">欢迎</view>
-        <view style="font-size: 20px;font-weight: 600;">您好，请登录账户</view>
+      <view class="index-welcome-text flex-vertical-middle">
+        <view style="font-size: 40px;font-weight: 100;">我的订单</view>
       </view>
-      <NavGrid />
-      <Subscribe />
     </view>
   </view>
 </template>
 
 <script setup>
-import Swiper from './Swiper.vue'
-import NavGrid from './NavGrid.vue'
-import Subscribe from './Subscribe.vue'
 import { useDidShow } from '@tarojs/taro'
 
 definePageConfig({
-  navigationBarTitleText: '首页'
+  navigationBarTitleText: '我的订单'
 })
-
 useDidShow(() => console.log('onShow'))
 
 </script>

@@ -1,29 +1,27 @@
 <template>
   <view class="index">
-    <view>
-      <Swiper></Swiper>
-    </view>
     <view style="padding: 20px;">
-      <view class="index-welcome-text">
-        <view style="font-size: 40px;font-weight: 100;">欢迎</view>
-        <view style="font-size: 20px;font-weight: 600;">您好，请登录账户</view>
+      <view class="index-welcome-text flex-vertical-middle">
+        <view style="font-size: 40px;font-weight: 100;">地址簿</view>
+        <nut-button shape="round" plain type="primary" style="margin-left:20px">
+          <template #icon>
+            <Add size="20" />
+          </template>
+        </nut-button>
       </view>
-      <NavGrid />
-      <Subscribe />
+      <AddrList />
     </view>
   </view>
 </template>
 
 <script setup>
-import Swiper from './Swiper.vue'
-import NavGrid from './NavGrid.vue'
-import Subscribe from './Subscribe.vue'
 import { useDidShow } from '@tarojs/taro'
+import { Add } from '@nutui/icons-vue-taro'
+import AddrList from './AddrList.vue'
 
 definePageConfig({
-  navigationBarTitleText: '首页'
+  navigationBarTitleText: '地址簿'
 })
-
 useDidShow(() => console.log('onShow'))
 
 </script>
