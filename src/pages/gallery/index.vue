@@ -2,7 +2,7 @@
   <view id="main">
     <div>第一页</div>
     <div>第二页</div>
-    <div>最后一页</div>
+    <div>第三页</div>
   </view>
 </template>
 
@@ -26,7 +26,7 @@ useDidShow(() => console.log('onShow'))
   width: 100vw;
   height: 100vh;
   overflow: auto;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 }
 
 #main::-webkit-scrollbar {
@@ -46,17 +46,17 @@ useDidShow(() => console.log('onShow'))
 }
 
 #main div:nth-child(1) {
-  background-image: url('https://api.r10086.com/%E6%A8%B1%E9%81%93%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87api%E6%8E%A5%E5%8F%A3.php?%E5%9B%BE%E7%89%87%E7%B3%BB%E5%88%97=%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E7%B3%BB%E5%88%971&r=1');
+  background-image: url('http://47.96.71.53:8080/images/2');
   background-color: pink;
 }
 
 #main div:nth-child(2) {
-  background-image: url('https://api.r10086.com/%E6%A8%B1%E9%81%93%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87api%E6%8E%A5%E5%8F%A3.php?%E5%9B%BE%E7%89%87%E7%B3%BB%E5%88%97=%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E7%B3%BB%E5%88%971&r=2');
+  background-image: url('http://47.96.71.53:8080/images/3');
   background-color: blue;
 }
 
 #main div:nth-child(3) {
-  background-image: url('https://api.r10086.com/%E6%A8%B1%E9%81%93%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87api%E6%8E%A5%E5%8F%A3.php?%E5%9B%BE%E7%89%87%E7%B3%BB%E5%88%97=%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E7%B3%BB%E5%88%971&r=3');
+  background-image: url('http://47.96.71.53:8080/images/4');
   background-color: green;
 }
 </style>

@@ -4,7 +4,8 @@ export default defineAppConfig({
     'pages/address/index',
     'pages/orders/index',
     'pages/questions/index',
-    'pages/gallery/index'
+    'pages/gallery/index',
+    'pages/video/index'
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -25,7 +26,7 @@ export default defineAppConfig({
         selectedIconPath: 'static/map.svg'
       },
       {
-        pagePath: 'pages/address/index',
+        pagePath: 'pages/video/index',
         text: '视频',
         iconPath: 'static/send.svg',
         selectedIconPath: 'static/send.svg'
