@@ -1,18 +1,43 @@
 <template>
-  <view id="main">
-    <div>第一页</div>
-    <div>第二页</div>
-    <div>第三页</div>
+  <view id="gallery">
+    <nut-swiper :loop="true" auto-play="0" direction="vertical" :pagination-visible="true" style="height: 100%">
+      <nut-swiper-item>
+        <PPTPage :pageData="pageData" />
+      </nut-swiper-item>
+      <nut-swiper-item>
+        <PPTPage :pageData="pageData" />
+      </nut-swiper-item>
+      <nut-swiper-item>
+        <PPTPage :pageData="pageData" />
+      </nut-swiper-item>
+      <nut-swiper-item>
+        <PPTPage :pageData="pageData" />
+      </nut-swiper-item>
+    </nut-swiper>
   </view>
 </template>
 
 <script setup>
 import { useDidShow } from '@tarojs/taro'
+import PPTPage from './PPTPage.vue'
 
 definePageConfig({
   navigationBarTitleText: '画廊'
 })
 useDidShow(() => console.log('onShow'))
+
+const pageData = {
+  pageId: 100,
+  imageList: [
+    'https://t.mwm.moe/mp/?r=1',
+    'https://t.mwm.moe/mp/?r=2',
+    'https://t.mwm.moe/mp/?r=3'
+  ],
+  title: '测试页面',
+  desc: 'Ut amet labore ut',
+  button: 'laboris',
+  href: 'Excepteur nisi'
+}
 
 </script>
 
@@ -22,41 +47,31 @@ useDidShow(() => console.log('onShow'))
   margin: 0;
 }
 
-#main {
+#gallery {
   width: 100vw;
-  height: 100vh;
-  overflow: auto;
-  scroll-snap-type: y proximity;
+  height: 100%;
 }
 
-#main::-webkit-scrollbar {
-  width: 0;
-}
-
-#main div {
+.gallery-page {
   width: 100vw;
-  height: 100vh;
-  color: white;
-  font-size: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  scroll-snap-align: start;
+  height: 100%;
   background-position: center;
+  background-size: cover;
 }
 
-#main div:nth-child(1) {
-  background-image: url('http://47.96.71.53:8080/images/2');
-  background-color: pink;
+.preload {
+  width: 0;
+  height: 0;
 }
 
-#main div:nth-child(2) {
-  background-image: url('http://47.96.71.53:8080/images/3');
-  background-color: blue;
+.gallery-page-float {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
 }
 
-#main div:nth-child(3) {
-  background-image: url('http://47.96.71.53:8080/images/4');
-  background-color: green;
+.gallery-page-float div {
+  padding: 0 40px 40px;
 }
 </style>
