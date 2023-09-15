@@ -5,7 +5,8 @@ export default defineAppConfig({
     'pages/orders/index',
     'pages/questions/index',
     'pages/gallery/index',
-    'pages/video/index'
+    'pages/video/index',
+    'pages/shop/index'
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -30,6 +31,12 @@ export default defineAppConfig({
         text: '视频',
         iconPath: 'static/send.svg',
         selectedIconPath: 'static/send.svg'
+      },
+      {
+        pagePath: 'pages/shop/index',
+        text: '商品',
+        iconPath: 'static/shop.svg',
+        selectedIconPath: 'static/shop.svg'
       },
       {
         pagePath: 'pages/index/index',
