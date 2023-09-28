@@ -1,10 +1,13 @@
 <template>
-  <div class="gallery-page" :style="{ 'background-image': `url(${pageData.imageList[currentBg]})` }">
+  <div
+    class="gallery-page"
+    :style="{ 'background-image': `url(${pageData.imageList[currentBg]})` }"
+  >
     <div class="gallery-page-float">
-      <div>
+      <div class="revert-color">
         {{ pageData.title }}
       </div>
-      <div>
+      <div class="revert-color">
         {{ pageData.desc }}
       </div>
       <div>
@@ -12,11 +15,14 @@
       </div>
     </div>
   </div>
-  <div v-for="(item, index) in pageData.imageList" :key="index" class="preload"
-    :style="{ 'background-image': `url(${item})` }"></div>
+  <div
+    v-for="(item, index) in pageData.imageList"
+    :key="index"
+    class="preload"
+    :style="{ 'background-image': `url(${item})` }"
+  ></div>
 </template>
 <script setup>
-
 const { pageData } = defineProps(['pageData'])
 const currentBg = ref(0)
 const changeBg = () => {
@@ -28,3 +34,9 @@ const changeBg = () => {
 }
 changeBg()
 </script>
+<style>
+.revert-color {
+  mix-blend-mode: difference;
+  color: white;
+}
+</style>

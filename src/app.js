@@ -1,5 +1,8 @@
 import { createApp } from 'vue'
+import axios from 'axios'
 import './app.scss'
+
+axios.defaults.baseURL = '//47.96.71.53:8080/'
 
 const App = createApp({
   onShow(options) {}
