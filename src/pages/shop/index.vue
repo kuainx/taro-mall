@@ -27,14 +27,16 @@
         v-for="item in state.leftTabList[state.topTabList[state.topTab]]"
         :key="item.name"
         :title="item.name"
+        style="padding: 0"
       >
-        {{ item.name }}
+        <ShopTypePane :subType="item.name" />
       </nut-tab-pane>
     </nut-tabs>
   </div>
 </template>
 <script setup>
 import { get } from '../../utils/axios'
+import ShopTypePane from './ShopTypePane.vue'
 
 const state = reactive({
   topTab: '0',

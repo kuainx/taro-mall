@@ -1,3 +1,5 @@
 import axios from 'axios'
 
-export const get = axios.get
+export const get = (url, params, config) => {
+  return axios.get(url, { params, ...config })
+}
