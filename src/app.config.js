@@ -6,7 +6,8 @@ export default defineAppConfig({
     'pages/questions/index',
     'pages/gallery/index',
     'pages/video/index',
-    'pages/shop/index'
+    'pages/shop/index',
+    'pages/goods/index'
   ],
   window: {
     backgroundTextStyle: 'light',
