@@ -1,12 +1,12 @@
 <template>
   <div class="product-fall-container">
     <div
-      v-for="(item, index) in itemList"
-      :key="index"
+      v-for="item in itemList"
+      :key="item.id"
       class="product-grid"
-      @click="directToGoods(index)"
+      @click="directToGoods(item.number)"
     >
-      <Product :url="item.url" :title="item.name" />
+      <Product :url="item.url" :title="item.name" :price="item.price" />
     </div>
   </div>
 </template>
