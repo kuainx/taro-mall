@@ -13,6 +13,7 @@ declare module 'vue' {
     NutDialog: typeof import('@nutui/nutui-taro')['Dialog']
     NutGrid: typeof import('@nutui/nutui-taro')['Grid']
     NutGridItem: typeof import('@nutui/nutui-taro')['GridItem']
+    NutInput: typeof import('@nutui/nutui-taro')['Input']
     NutPopup: typeof import('@nutui/nutui-taro')['Popup']
     NutPrice: typeof import('@nutui/nutui-taro')['Price']
     NutRow: typeof import('@nutui/nutui-taro')['Row']

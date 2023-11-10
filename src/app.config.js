@@ -7,7 +7,8 @@ export default defineAppConfig({
     'pages/gallery/index',
     'pages/video/index',
     'pages/shop/index',
-    'pages/goods/index'
+    'pages/goods/index',
+    'pages/login/index'
   ],
   window: {
     backgroundTextStyle: 'light',
