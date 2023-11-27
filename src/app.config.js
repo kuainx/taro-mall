@@ -8,7 +8,8 @@ export default defineAppConfig({
     'pages/video/index',
     'pages/shop/index',
     'pages/goods/index',
-    'pages/login/index'
+    'pages/login/index',
+    'pages/login/register'
   ],
   window: {
     backgroundTextStyle: 'light',

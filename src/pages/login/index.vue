@@ -2,49 +2,34 @@
   <view class="login-container">
     <view style="margin-bottom: 10px">登录</view>
     <view>
-      <nut-input placeholder="请输入手机号" v-model="phone" type="number">
-        <template #right>
-          <nut-button type="primary" size="small" @click="sendSms">
-            {{ sendSmsBtnText }}
-          </nut-button>
-        </template>
-      </nut-input>
-      <nut-input placeholder="请输入验证码" v-model="password" type="number" />
+      <nut-input placeholder="请输入手机号" v-model="phone" type="number" />
+      <nut-input placeholder="请输入密码" v-model="password" type="password" />
     </view>
-    <view style="margin-top: 20px">
+    <div class="login-button-group">
+      <nut-button
+        type="default"
+        @click="navigateTo({ url: '/pages/login/register' })"
+      >
+        没有账号，去注册
+      </nut-button>
       <nut-button type="primary">登录</nut-button>
-    </view>
+    </div>
   </view>
 </template>
 <script setup>
-import { showToast } from '@tarojs/taro'
+import { navigateTo } from '@tarojs/taro'
 
 const phone = ref('')
 const password = ref('')
-const nextSend = ref(0)
-const sendSmsBtnText = ref('获取验证码')
-function sendSms() {
-  if (Date.now() < nextSend.value) {
-    showToast({ title: '请稍等一会再发送', icon: 'error' })
-  } else {
-    nextSend.value = Date.now() + 30 * 1000
-    showToast({ title: '已发送验证码' })
-    countDown()
-  }
-}
-
-function countDown() {
-  const time = Math.round((nextSend.value - Date.now()) / 1000)
-  if (time > 0) {
-    sendSmsBtnText.value = time + 's'
-    setTimeout(countDown, 1000)
-  } else {
-    sendSmsBtnText.value = '获取验证码'
-  }
-}
 </script>
 <style>
 .login-container {
   text-align: center;
+  margin-top: 40px;
+}
+.login-button-group {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
 }
 </style>

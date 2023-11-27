@@ -6,9 +6,9 @@
     <view style="padding: 20px">
       <view class="index-welcome-text">
         <view style="font-size: 40px; font-weight: 100">欢迎</view>
-        <view style="font-size: 20px; font-weight: 600" @click="login"
-          >您好，请登录账户</view
-        >
+        <view style="font-size: 20px; font-weight: 600" @click="login">
+          您好，请登录账户
+        </view>
       </view>
       <NavGrid />
       <Subscribe />
