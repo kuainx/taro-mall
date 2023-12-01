@@ -12,15 +12,33 @@
       >
         没有账号，去注册
       </nut-button>
-      <nut-button type="primary">登录</nut-button>
+      <nut-button type="primary" @click="login">登录</nut-button>
     </div>
   </view>
 </template>
 <script setup>
-import { navigateTo } from '@tarojs/taro'
+import { navigateTo, navigateBack, showToast, setStorage } from '@tarojs/taro'
+import { encryptPassword } from './utils'
+import { post } from '../../utils/axios'
 
 const phone = ref('')
 const password = ref('')
+
+async function login() {
+  const encryptedPass = encryptPassword(password.value)
+  try {
+    const data = await post('/api/auth/login', {
+      userName: phone.value,
+      password: encryptedPass
+    })
+    console.log(data)
+    setStorage({ key: 'token', data: data.data.token })
+    showToast({ title: '注册成功' })
+    navigateBack()
+  } catch (error) {
+    showToast({ title: error.toString(), icon: 'error' })
+  }
+}
 </script>
 <style>
 .login-container {

@@ -16,12 +16,14 @@
       <nut-button type="default" @click="navigateBack()">
         已有账号，去登录
       </nut-button>
-      <nut-button type="primary">注册</nut-button>
+      <nut-button type="primary" @click="register">注册</nut-button>
     </div>
   </view>
 </template>
 <script setup>
 import { showToast, navigateBack } from '@tarojs/taro'
+import { encryptPassword } from './utils'
+import { post } from '../../utils/axios'
 
 const phone = ref('')
 const smsCode = ref('')
@@ -45,6 +47,20 @@ function countDown() {
     setTimeout(countDown, 1000)
   } else {
     sendSmsBtnText.value = '获取验证码'
+  }
+}
+
+async function register() {
+  const encryptedPass = encryptPassword(password.value)
+  try {
+    await post('/api/auth/register', {
+      userName: phone.value,
+      password: encryptedPass
+    })
+    showToast({ title: '注册成功' })
+    navigateBack()
+  } catch (error) {
+    showToast({ title: error.toString(), icon: 'error' })
   }
 }
 </script>
