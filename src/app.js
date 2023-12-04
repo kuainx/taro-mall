@@ -2,8 +2,13 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import axios from 'axios'
 import './app.scss'
+import { getStorageSync } from '@tarojs/taro'
 
 axios.defaults.baseURL = '//106.14.157.17:8000/'
+axios.interceptors.request.use(function (config) {
+  config.headers.token = getStorageSync('token')
+  return config
+})
 
 const App = createApp({
   onShow(options) {}

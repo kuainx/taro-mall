@@ -15,9 +15,23 @@
       <div class="good-story">{{ currentItem.describe }}</div>
     </div>
     <div class="good-footer">
-      <nut-button type="default">默认按钮</nut-button>
-      <nut-button type="primary">主要按钮</nut-button>
+      <nut-button type="default" @click="show = true">加入购物车</nut-button>
+      <nut-button type="primary">立即购买</nut-button>
     </div>
+    <nut-popup position="bottom" style="height: 60%" v-model:visible="show">
+      <div style="padding: 20px">
+        <nut-card
+          :img-url="goodColorData[currentColor]"
+          :title="currentItem.name"
+          :price="currentItem.price + 1"
+          :vipPrice="currentItem.price"
+          :shopName="currentItem.color"
+        />
+        <div style="margin-top: 20px; text-align: center">
+          <nut-button type="primary">加入购物车</nut-button>
+        </div>
+      </div>
+    </nut-popup>
   </div>
 </template>
 <script setup>
@@ -28,6 +42,7 @@ import { get } from '../../utils/axios'
 
 const currentColor = ref(0)
 const itemList = ref([])
+const show = ref(false)
 const goodColorData = computed(() => itemList.value.map(e => e.url))
 const currentItem = computed(() => itemList.value[currentColor.value] || {})
 

@@ -9,7 +9,8 @@ export default defineAppConfig({
     'pages/shop/index',
     'pages/goods/index',
     'pages/login/index',
-    'pages/login/register'
+    'pages/login/register',
+    'pages/cart/index'
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -40,6 +41,12 @@ export default defineAppConfig({
         text: '商品',
         iconPath: 'static/shop.svg',
         selectedIconPath: 'static/shop.svg'
+      },
+      {
+        pagePath: 'pages/cart/index',
+        text: '购物车',
+        iconPath: 'static/cart.svg',
+        selectedIconPath: 'static/cart.svg'
       },
       {
         pagePath: 'pages/index/index',
