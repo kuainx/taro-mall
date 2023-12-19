@@ -45,7 +45,7 @@ const state = reactive({
   leftTabList: {}
 })
 
-get('/allColumn').then(res => {
+get('/ColumnController/allColumn').then(res => {
   state.topTabList = Object.keys(res.data)
   state.leftTabList = res.data
 })

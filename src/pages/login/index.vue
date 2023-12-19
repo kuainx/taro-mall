@@ -1,20 +1,26 @@
 <template>
-  <view class="login-container">
-    <view style="margin-bottom: 10px">登录</view>
-    <view>
-      <nut-input placeholder="请输入手机号" v-model="phone" type="number" />
-      <nut-input placeholder="请输入密码" v-model="password" type="password" />
+  <div class="login-background">
+    <view class="login-container">
+      <view style="margin-bottom: 10px; color: white">登录</view>
+      <view>
+        <nut-input placeholder="请输入手机号" v-model="phone" type="number" />
+        <nut-input
+          placeholder="请输入密码"
+          v-model="password"
+          type="password"
+        />
+      </view>
+      <div class="login-button-group">
+        <nut-button
+          type="default"
+          @click="navigateTo({ url: '/pages/login/register' })"
+        >
+          没有账号，去注册
+        </nut-button>
+        <nut-button type="primary" @click="login">登录</nut-button>
+      </div>
     </view>
-    <div class="login-button-group">
-      <nut-button
-        type="default"
-        @click="navigateTo({ url: '/pages/login/register' })"
-      >
-        没有账号，去注册
-      </nut-button>
-      <nut-button type="primary" @click="login">登录</nut-button>
-    </div>
-  </view>
+  </div>
 </template>
 <script setup>
 import { navigateTo, navigateBack, showToast, setStorage } from '@tarojs/taro'
@@ -43,8 +49,16 @@ async function login() {
 <style>
 .login-container {
   text-align: center;
-  margin-top: 40px;
 }
+
+.login-background {
+  background-image: url('./background.png');
+  background-size: cover;
+  width: 100%;
+  height: calc(100vh - 80px);
+  padding: 40px 0;
+}
+
 .login-button-group {
   margin-top: 40px;
   display: flex;

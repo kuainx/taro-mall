@@ -1,24 +1,26 @@
 <template>
-  <view class="login-container">
-    <view style="margin-bottom: 10px">注册</view>
-    <view>
-      <nut-input placeholder="请输入手机号" v-model="phone" type="number">
-        <template #right>
-          <nut-button type="primary" size="small" @click="sendSms">
-            {{ sendSmsBtnText }}
-          </nut-button>
-        </template>
-      </nut-input>
-      <nut-input placeholder="请输入验证码" v-model="smsCode" type="number" />
-      <nut-input placeholder="请输入密码" v-model="password" />
+  <div class="login-background">
+    <view class="login-container">
+      <view style="margin-bottom: 10px; color: white">注册</view>
+      <view>
+        <nut-input placeholder="请输入手机号" v-model="phone" type="number">
+          <template #right>
+            <nut-button type="primary" size="small" @click="sendSms">
+              {{ sendSmsBtnText }}
+            </nut-button>
+          </template>
+        </nut-input>
+        <nut-input placeholder="请输入验证码" v-model="smsCode" type="number" />
+        <nut-input placeholder="请输入密码" v-model="password" />
+      </view>
+      <div class="login-button-group">
+        <nut-button type="default" @click="navigateBack()">
+          已有账号，去登录
+        </nut-button>
+        <nut-button type="primary" @click="register">注册</nut-button>
+      </div>
     </view>
-    <div class="login-button-group">
-      <nut-button type="default" @click="navigateBack()">
-        已有账号，去登录
-      </nut-button>
-      <nut-button type="primary" @click="register">注册</nut-button>
-    </div>
-  </view>
+  </div>
 </template>
 <script setup>
 import { showToast, navigateBack } from '@tarojs/taro'
