@@ -27,15 +27,20 @@
           :vipPrice="currentItem.price"
           :shopName="currentItem.color"
         />
+        <nut-cell title="数量">
+          <template #link>
+            <nut-input-number v-model="num" decimal-places="0" />
+          </template>
+        </nut-cell>
         <div style="margin-top: 20px; text-align: center">
-          <nut-button type="primary">加入购物车</nut-button>
+          <nut-button type="primary" @click="addToCart">加入购物车</nut-button>
         </div>
       </div>
     </nut-popup>
   </div>
 </template>
 <script setup>
-import { getCurrentInstance } from '@tarojs/taro'
+import { getCurrentInstance, showToast } from '@tarojs/taro'
 import GoodColorSelector from './GoodColorSelector.vue'
 import GoodSwiper from './GoodSwiper.vue'
 import { get } from '../../utils/axios'
@@ -43,6 +48,7 @@ import { get } from '../../utils/axios'
 const currentColor = ref(0)
 const itemList = ref([])
 const show = ref(false)
+const num = ref(1)
 const goodColorData = computed(() => itemList.value.map(e => e.url))
 const currentItem = computed(() => itemList.value[currentColor.value] || {})
 
@@ -51,6 +57,15 @@ const productId = getCurrentInstance().router.params.id
 get('/imageurl/commoditydetile', { clothesnumber: productId }).then(res => {
   itemList.value = res.data
 })
+
+const addToCart = () => {
+  get('/carts/addcart', { pid: currentItem.value.id, amount: num.value }).then(
+    () => {
+      show.value = false
+      showToast({ title: '已加入购物车' })
+    }
+  )
+}
 </script>
 <style>
 .good-container {
