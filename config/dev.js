@@ -4,9 +4,23 @@ module.exports = {
   },
   compiler: {
     type: 'webpack5',
-    prebundle: { enable: true }
+    prebundle: { enable: false }
   },
   defineConstants: {},
   mini: {},
-  h5: { publicPath: '/' }
+  h5: {
+    publicPath: '/',
+    devServer: {
+      proxy: {
+        '/api/': {
+          target: 'http://106.14.157.17:5678',
+          pathRewrite: {
+            '^/api/': '/'
+          },
+          secure: false,
+          changeOrigin: true
+        }
+      }
+    }
+  }
 }

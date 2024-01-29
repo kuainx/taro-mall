@@ -1,7 +1,7 @@
 <template>
   <view class="index">
     <view>
-      <Swiper></Swiper>
+      <IndexSwiper />
     </view>
     <view style="padding: 20px">
       <view class="index-welcome-text">
@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import Swiper from './Swiper.vue'
+import IndexSwiper from './Swiper.vue'
 import NavGrid from './NavGrid.vue'
 import Subscribe from './Subscribe.vue'
 import { useDidShow, navigateTo } from '@tarojs/taro'

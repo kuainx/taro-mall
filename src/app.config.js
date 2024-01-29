@@ -27,32 +27,32 @@ export default defineAppConfig({
       {
         pagePath: 'pages/gallery/index',
         text: '图片',
-        iconPath: 'static/map.svg',
-        selectedIconPath: 'static/map.svg'
+        iconPath: 'static/map.png',
+        selectedIconPath: 'static/map.png'
       },
       {
         pagePath: 'pages/video/index',
         text: '视频',
-        iconPath: 'static/send.svg',
-        selectedIconPath: 'static/send.svg'
+        iconPath: 'static/send.png',
+        selectedIconPath: 'static/send.png'
       },
       {
         pagePath: 'pages/shop/index',
         text: '商品',
-        iconPath: 'static/shop.svg',
-        selectedIconPath: 'static/shop.svg'
+        iconPath: 'static/shop.png',
+        selectedIconPath: 'static/shop.png'
       },
       {
         pagePath: 'pages/cart/index',
         text: '购物车',
-        iconPath: 'static/cart.svg',
-        selectedIconPath: 'static/cart.svg'
+        iconPath: 'static/cart.png',
+        selectedIconPath: 'static/cart.png'
       },
       {
         pagePath: 'pages/index/index',
         text: '我的',
-        iconPath: 'static/vip.svg',
-        selectedIconPath: 'static/vip.svg'
+        iconPath: 'static/vip.png',
+        selectedIconPath: 'static/vip.png'
       }
     ]
   }

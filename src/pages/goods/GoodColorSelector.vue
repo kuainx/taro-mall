@@ -7,7 +7,7 @@
       :class="{ active: modelValue === index }"
       @click="() => (current = index)"
     >
-      <img :src="item" />
+      <image :src="item" mode="heightFix" />
     </div>
   </div>
 </template>
@@ -35,7 +35,7 @@ const current = computed({
   height: 100px;
   border: 2px solid transparent;
 }
-.good-color-selector-item img {
+.good-color-selector-item image {
   height: 100%;
 }
 .good-color-selector-item.active {

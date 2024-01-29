@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div><img :src="url" alt="" style="width: 100%" /></div>
+    <div><image :src="url" alt="" style="width: 100%" mode="widthFix" /></div>
     <div>{{ title || 'title' }}</div>
     <div><nut-price :price="price" :decimal-digits="2" thousands /></div>
   </div>

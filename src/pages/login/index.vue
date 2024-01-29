@@ -52,7 +52,7 @@ async function login() {
 }
 
 .login-background {
-  background-image: url('./background.png');
+  background-image: url('https://pic.imgdb.cn/item/65b4a244871b83018ae38e19.png');
   background-size: cover;
   width: 100%;
   height: calc(100vh - 80px);
