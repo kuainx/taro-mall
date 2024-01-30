@@ -28,7 +28,10 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: ['@tarojs/plugin-html', '@tarojs/plugin-http'],
+  plugins: [
+    '@tarojs/plugin-html',
+    ['@tarojs/plugin-http', { enableCookie: true }]
+  ],
   defineConstants: {},
   copy: {
     patterns: [],

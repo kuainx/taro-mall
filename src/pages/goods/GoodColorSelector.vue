@@ -33,7 +33,7 @@ const current = computed({
 }
 .good-color-selector-item {
   height: 100px;
-  border: 2px solid transparent;
+  border: 4px solid transparent;
 }
 .good-color-selector-item image {
   height: 100%;

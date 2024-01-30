@@ -91,5 +91,6 @@ const addToCart = () => {
   text-align: justify;
   line-height: 2;
   font-size: medium;
+  padding-bottom: 200px;
 }
 </style>
